@@ -28,6 +28,24 @@ describe('GerenciaFatura', () => {
         const tamanhoArray = arr.length;
         expect(tamanhoArray).toBe(0); 
     });
+    
+    test('teste fatura - valor entre 2000 - 2500 e data <= 1 mes', () => {
+        cliente = new Cliente();
+        fatura = new Fatura();
+        
+        const cliente1 = cliente.criarCliente('leo', '1/1/1', 'pr');
+
+        const fatura1 = fatura.criarFatura('codigo', 2500, '01/01/2020', cliente1);
+
+        let arr = []
+        arr = fatura.addFaturaToArray(arr,fatura1)
+        
+        filtroFatura = new GerenciaFatura();
+        arr = filtroFatura.filtroFatura(arr);
+
+        const tamanhoArray = arr.length;
+        expect(tamanhoArray).toBe(0); 
+    });
 
    
 });
