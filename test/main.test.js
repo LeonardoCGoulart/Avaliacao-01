@@ -8,7 +8,7 @@ describe('GerenciaFatura', () => {
         expect(valor).toBe(3); 
     });
 
-    test('teste fatura', () => {
+    test('teste fatura - menor que 2000', () => {
         cliente = new Cliente();
         fatura = new Fatura();
         
