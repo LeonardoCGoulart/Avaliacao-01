@@ -35,7 +35,7 @@ describe('GerenciaFatura', () => {
         
         const cliente1 = cliente.criarCliente('leo', '1/1/1', 'pr');
 
-        const fatura1 = fatura.criarFatura('codigo', 2500, '01/01/2020', cliente1);
+        const fatura1 = fatura.criarFatura('codigo', 2500, '2021-11-01', cliente1);
 
         let arr = []
         arr = fatura.addFaturaToArray(arr,fatura1)
