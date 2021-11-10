@@ -80,5 +80,22 @@ describe('GerenciaFatura', () => {
         expect(tamanhoArray).toBe(1); 
     });
 
+    test('teste fatura - valor maior que 4000 e cliente da região sul do Brasil', () => {
+        cliente = new Cliente();
+        fatura = new Fatura();
+        
+        const cliente1 = cliente.criarCliente('leo', '2021-11-01', 'pr'); // fatura > 4000 e cliente do sul, a fatura deve ser apagada
+        const fatura1 = fatura.criarFatura('codigo', 4001, '2021-11-01', cliente1);
+
+        let arr = []
+        arr = fatura.addFaturaToArray(arr,fatura1)
+        
+        filtroFatura = new GerenciaFatura();
+        arr = filtroFatura.filtroFatura(arr);
+
+        const tamanhoArray = arr.length;
+        expect(tamanhoArray).toBe(0); 
+    });
+
    
 });
